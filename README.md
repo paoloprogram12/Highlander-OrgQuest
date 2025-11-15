@@ -4,7 +4,7 @@
 
 * Install `uv`. [Follow the steps here](https://github.com/astral-sh/uv#installation)
 * Create a Virtual Python environment: `uv venv`
-* Enter hte virtual python environment: `source .venv/bin/activate`
+* Enter the virtual python environment: `source .venv/bin/activate`
   * Note: you can exit by just typing out `deactivate` inside of the terminal
 * Now you can `uv sync` the project to download all of the dependencies
   * Note: you can add new dependencies to the project using `uv add <package-name>`
