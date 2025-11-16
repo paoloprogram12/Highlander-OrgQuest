@@ -26,10 +26,10 @@
 
 ### All commands needed before Pushing back into github
 
-* Create a branch and checkout to that branch: git checkout -b <branchName>
-* Create a branch: git branch <branchName>
-* Go to a branch: git checkout <branchName>
+* Create a branch and checkout to that branch: git checkout -b "branchName"
+* Create a branch: git branch "branchName"
+* Go to a branch: git checkout "branchName"
 * Stage all changes: git add . 
-* Stage specific changes: git add <fileName> 
+* Stage specific changes: git add "fileName" 
 * Commit changes: git commit -m "description of changes"
-* Push changes to remote: git push origin <branchName>
+* Push changes to remote: git push origin "branchName"
