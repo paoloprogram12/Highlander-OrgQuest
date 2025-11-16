@@ -5,13 +5,6 @@ services:
       - 8000:8000
     volumes:
       - pycache:/root/.cache
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
 
 volumes:
   pycache:

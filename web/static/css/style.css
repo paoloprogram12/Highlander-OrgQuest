@@ -1,0 +1,138 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #d3d3d3;
+  color: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: #d3d3d3;
+  border-bottom: 2px solid #000;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #000;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+
+.content-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 4rem;
+}
+
+.left-section {
+  flex: 1;
+}
+
+.slogan {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.description {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+.button-group {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.btn {
+  padding: 1.2rem 2.5rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn-primary {
+  background-color: #8B4545;
+  color: #000;
+}
+
+/* Right Section - Image Placeholder */
+.right-section {
+  flex: 0 0 auto;
+}
+
+.image-placeholder {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background-color: #4A6FA5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+  background-color: #5C3A3A;
+  color: #000;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+footer p {
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .button-group {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .slogan {
+    font-size: 2rem;
+  }
+
+  .image-placeholder {
+    width: 250px;
+    height: 250px;
+  }
+}
