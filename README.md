@@ -17,3 +17,19 @@
   * please comment out nvidia gpu in the docker-compose.yml file if your
     computer does not have one.
 * The webapp port will be avaliable at 8000
+
+
+## Push and Pull code
+
+* Clone the code to your IDE: git clone https://github.com/paoloprogram12/Highlander-OrgQuest.git
+* Pull recent changes: git pull
+
+### All commands needed before Pushing back into github
+
+* Create a branch and checkout to that branch: git checkout -b <branchName>
+* Create a branch: git branch <branchName>
+* Go to a branch: git checkout <branchName>
+* Stage all changes: git add . 
+* Stage specific changes: git add <fileName> 
+* Commit changes: git commit -m "description of changes"
+* Push changes to remote: git push origin <branchName>
