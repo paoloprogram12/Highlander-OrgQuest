@@ -33,13 +33,16 @@
       <button onclick="location.href='/questions'">Find My Org</button>
       <button>Show all Orgs</button>
 
-      <div>
-        <input id="search" />
+      <div class="search-container">
+        <input id="search" placeholder="Search for clubs..." />
         <button onClick="send()">Search</button>
       </div>
-
-      <div id="results"></div>
     </main>
+
+    <section class="results-section">
+      <h2>Club Results</h2>
+      <div id="results"></div>
+    </section>
 
     <footer>
       <h1>About this Website</h1>

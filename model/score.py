@@ -31,4 +31,4 @@ def score(club: Club, user_input: list[str]) -> float:
         for phrase in user_input:
             final_score += cos_sim(label, phrase)
 
-    return final_score / len(user_input)
+    return final_score / len(user_input) / len(club.labels)
