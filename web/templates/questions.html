@@ -6,8 +6,48 @@
     <title>Highlander OrgQuest - Find My Org</title>
 </head>
 <body>
+    <header>
+      <h1>Highlander OrgQuest</h1>
+    </header>
+    <!-- First Page -->
+    <div class="step" id="step-gender">
+        <h2 id="title">What is your Gender?</h2>
+        <label><input type="checkbox" name="gender" value="Male"> Male</label><br>
+        <label><input type="checkbox" name="gender" value="Female"> Female</label><br>
+        <label><input type="checkbox" name="gender" value="Non-Binary"> Non-Binary</label><br>
+        <label><input type="checkbox" name="gender" value="Other"> Other</label><br>
+        <label><input type="checkbox" name="gender" value="Prefer Not to Say"> Prefer Not to Say</label><br>
+        <button onclick="showStep('step-interests')">Confirm</button>
+    </div>
+    <!-- Second Page -->
+     <div class="step" id="step-interests" style="display: none;">
+        <h2>What are your Interests?</h2>
+        <label><input type="checkbox" name="interest" value="Academics and Professional"> Academics and Professional</label><br>
+        <label><input type="checkbox" name="interest" value="Arts and Expression"> Arts and Expression</label><br>
+        <label><input type="checkbox" name="interest" value="Cultural"> Cultural</label><br>
+        <label><input type="checkbox" name="interest" value="Greek Life"> Greek Life</label><br>
+        <label><input type="checkbox" name="interest" value="Graduate Organizations"> Graduate Organizations</label><br>
+        <label><input type="checkbox" name="interest" value="Action and Awareness"> Action and Awareness</label><br>
+        <label><input type="checkbox" name="interest" value="Recreational"> Recreational</label><br>
+        <label><input type="checkbox" name="interest" value="Service"> Service</label><br>
+        <label><input type="checkbox" name="interest" value="Spiritual and Religious"> Spiritual and Religious</label><br>
+        <button onclick="showStep('step-specified')">Confirm</button>
+     </div>
+     <!-- Third Page -->
+      <div class="step" id="step-specified" style="display: none;">
+        <h2>Please select your Specified Interests:</h2>
+        <button>Confirm</button>
+      </div>
 
-    <header></header>
     
 </body>
+
+<script>
+    function showStep(stepID) {
+        document.querySelectorAll('.step').forEach(step => {
+            step.style.display = 'none';
+        });
+        document.getElementById(stepID).style.display = 'block';
+    }
+</script>
 </html>
