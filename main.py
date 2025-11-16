@@ -11,6 +11,17 @@ club_list = read_club_data("data.json")
 @app.route("/scores", methods=["POST"])
 def scores():
     data = json.loads(request.data.decode("utf-8"))
+    if len(data) == 0:
+        output = []
+        for club in club_list:
+            output.append(
+                {
+                    "name": club.name,
+                    "score": 0,
+                    "labels": club.labels,
+                }
+            )
+        return jsonify(output), 200
     output = []
     for club in club_list:
         club_score = score(club, data)

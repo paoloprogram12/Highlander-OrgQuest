@@ -74,3 +74,32 @@ async function send() {
   // Display results using the shared function
   displayClubs(final_results);
 }
+
+// Function to show all organizations
+async function showAllOrgs() {
+  try {
+    // Send empty array to get all clubs with their base scores
+    let response = await fetch("http://localhost:8000/scores", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([]),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch clubs');
+    }
+
+    let data = await response.json();
+
+    // Sort alphabetically by name for better browsing
+    data.sort((a, b) => a.name.localeCompare(b.name));
+
+    // Display all clubs
+    displayClubs(data);
+  } catch (error) {
+    console.error('Error fetching all clubs:', error);
+    alert('Failed to load clubs. Please try again.');
+  }
+}
