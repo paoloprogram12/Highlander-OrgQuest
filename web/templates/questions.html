@@ -22,32 +22,201 @@
     <!-- Second Page -->
      <div class="step" id="step-interests" style="display: none;">
         <h2>What are your Interests?</h2>
-        <label><input type="checkbox" name="interest" value="Academics and Professional"> Academics and Professional</label><br>
-        <label><input type="checkbox" name="interest" value="Arts and Expression"> Arts and Expression</label><br>
-        <label><input type="checkbox" name="interest" value="Cultural"> Cultural</label><br>
-        <label><input type="checkbox" name="interest" value="Greek Life"> Greek Life</label><br>
-        <label><input type="checkbox" name="interest" value="Graduate Organizations"> Graduate Organizations</label><br>
-        <label><input type="checkbox" name="interest" value="Action and Awareness"> Action and Awareness</label><br>
-        <label><input type="checkbox" name="interest" value="Recreational"> Recreational</label><br>
-        <label><input type="checkbox" name="interest" value="Service"> Service</label><br>
-        <label><input type="checkbox" name="interest" value="Spiritual and Religious"> Spiritual and Religious</label><br>
-        <button onclick="showStep('step-specified')">Confirm</button>
+        <label><input type="checkbox" class="interest" name="interest" value="Academics and Professional"> Academics and Professional</label><br>
+        <label><input type="checkbox" class="interest" name="interest" value="Arts and Expression"> Arts and Expression</label><br>
+        <label><input type="checkbox" class="interest" name="interest" value="Cultural"> Cultural</label><br>
+        <label><input type="checkbox" class="interest" name="interest" value="Greek Life"> Greek Life</label><br>
+        <label><input type="checkbox" class="interest" name="interest" value="Graduate Organizations"> Graduate Organizations</label><br>
+        <label><input type="checkbox" class="interest" name="interest" value="Action and Awareness"> Action and Awareness</label><br>
+        <label><input type="checkbox" class="interest" name="interest" value="Recreational"> Recreational</label><br>
+        <label><input type="checkbox" class="interest" name="interest" value="Service"> Service</label><br>
+        <label><input type="checkbox" class="interest" name="interest" value="Spiritual and Religious"> Spiritual and Religious</label><br>
+
+        <button onclick="showAttributes()">Confirm</button>
      </div>
      <!-- Third Page -->
-      <div class="step" id="step-specified" style="display: none;">
+    <div class="step" id="step-specified" style="display: none;">
         <h2>Please select your Specified Interests:</h2>
-        <button>Confirm</button>
-      </div>
 
-    
+        <div id="specified-container"></div>
+
+        <button>Confirm</button>
+    </div>
+
+
 </body>
 
 <script>
+
+    const interestAttributes = {
+        "Academics and Professional": [
+            "Business",
+            "Networking",
+            "Leadership",
+            "Asian",
+            "Computer Science",
+            "Technology",
+            "Programming",
+            "Design",
+            "Workshops",
+            "Collaboration",
+            "STEM"
+        ],
+        "Arts and Expressions": [
+            "Art",
+            "Anime",
+            "Japanese",
+            "Media",
+            "Television",
+            "Asian",
+            "Theatre",
+            "Performing Arts",
+            "Writing",
+            "Creative Writing",
+            "Literary Arts",
+            "Poetry"
+        ],
+        "Cultural": [
+            "Hispanic",
+            "Social",
+            "Food",
+            "Community",
+            "Cultural",
+            "Filipino",
+            "Asia",
+            "Food",
+            "Social",
+            "ABG",
+            "Neurodivergent",
+            "Support",
+            "Social",
+            "Disability",
+            "Disorder",
+        ],
+        "Greek Life": [
+            "ABG",
+            "Social",
+            "Bonding",
+            "Women",
+            "Boba",
+            "Support",
+            "Men"
+        ],
+        "Graduate Organizations": [
+            "Women",
+            "Business",
+            "Networking",
+            "Career",
+            "Computer Science",
+            "Workshops",
+            "Coding",
+            "Technology",
+            "STEM",
+            "Design",
+            "Collaboration",
+            "Science"
+        ],
+        "Action and Awareness": [
+            "Education",
+            "Teaching",
+            "Disorder",
+            "Help",
+            "Fundraising",
+            "Health",
+            "Medical",
+            "Healthcare",
+        ],
+        "Recreational": [
+            "Dance",
+            "Community",
+            "Hiphop",
+            "Black Culture",
+            "Music",
+            "Social",
+            "Chess",
+            "Strategy",
+            "Social",
+            "Fundraising",
+            "Basketball",
+            "Competition",
+            "High level",
+            "Tournaments"
+        ],
+        "Service": [
+            "Help",
+            "Medical",
+            "Training",
+            "Volunteer",
+            "Disability",
+            "Autism",
+            "Neurodivergent",
+            "Educational",
+            "Recreational",
+            "Nonprofit",
+            "Medical"
+        ],
+        "Spiritual and Religious": [
+            "Religion",
+            "Catholic",
+            "Christianity",
+            "Fellowship",
+            "Bible Study",
+            "Retreats",
+            "Social",
+            "Muslim",
+            "Safe Environment",
+            "Jewish",
+            "Cultural"
+        ]
+    };
+
     function showStep(stepID) {
         document.querySelectorAll('.step').forEach(step => {
             step.style.display = 'none';
         });
         document.getElementById(stepID).style.display = 'block';
     }
+
+    function showAttributes() {
+        const checkedInterests = Array.from(
+      document.querySelectorAll('.interest:checked')
+    ).map(input => input.value);
+
+    // Build a unique list (union) of all attributes for those interests
+    const attributesSet = new Set();
+
+    checkedInterests.forEach(interest => {
+      const attrs = interestAttributes[interest] || [];
+      attrs.forEach(attr => attributesSet.add(attr));
+    });
+
+    // Get container and clear previous content
+    const container = document.getElementById('specified-container');
+    container.innerHTML = "";
+
+    // If nothing selected, maybe show a message
+    if (attributesSet.size === 0) {
+      container.textContent = "Please select at least one interest first.";
+    } else {
+      // Create checkbox for each attribute
+      attributesSet.forEach(attr => {
+        const label = document.createElement('label');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = 'specified-interests';
+        checkbox.value = attr;
+
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(" " + attr));
+        container.appendChild(label);
+        container.appendChild(document.createElement('br'));
+      });
+    }
+
+    // Switch to specified step
+    showStep('step-specified');
+
+    }
+
 </script>
 </html>
