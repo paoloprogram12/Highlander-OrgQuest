@@ -30,6 +30,11 @@ def home():
     return render_template("index.html")
 
 
+@app.route("/questions")
+def questions():
+    return render_template("questions.html")
+
+
 def main():
     club = Club("chinese club", ["chinese", "language", "liguistic"])
     user_input = ["manderin"]
